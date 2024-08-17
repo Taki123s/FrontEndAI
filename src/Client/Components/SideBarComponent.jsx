@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   faHome,
   faKey,
@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export const SideBarComponent = ({ isSidebarOpen, toggleSidebar }) => {
+  const location = useLocation();
   return (
     <>
       <button
@@ -25,13 +26,26 @@ export const SideBarComponent = ({ isSidebarOpen, toggleSidebar }) => {
         } `}
       >
         <Link to={"/"} className="flex">
-          <h2 className="text-white font-sans text-2xl mb-8 flex items-center cursor-pointer hover:text-green-500 transition duration-300 ml-5">
+          <h2
+            className={`text-white font-sans text-2xl mb-8 flex items-center cursor-pointer hover:text-green-500 transition duration-300 ml-5 ${
+              location.pathname === "/"
+                ? "text-green-500 border-l-4 border-green-500 pl-2"
+                : ""
+            }`}
+          >
             <FontAwesomeIcon icon={faHome} size="1x" className="mr-2" />
             Home Page
           </h2>
         </Link>
         <ul className="space-y-6">
-          <Link className="flex items-center text-xl text-white transition duration-300 cursor-pointer border-2 border-transparent hover:bg-purple-800 hover:border-purple-400 py-5 rounded-2xl">
+          <Link
+            to={"/api-key"}
+            className={`flex items-center text-xl text-white transition duration-300 cursor-pointer border-2 border-transparent hover:bg-purple-800 hover:border-purple-400 py-5 rounded-2xl ${
+              location.pathname === "/api-key"
+                ? "bg-purple-800 border-purple-400"
+                : ""
+            }`}
+          >
             <li className="ml-5 ">
               <FontAwesomeIcon icon={faKey} size="lg" className="mr-3 w-8" />
               <span>API Key</span>
@@ -39,14 +53,25 @@ export const SideBarComponent = ({ isSidebarOpen, toggleSidebar }) => {
           </Link>
           <Link
             to={"/chat"}
-            className="flex items-center text-xl text-white transition duration-300 cursor-pointer border-2 border-transparent hover:bg-purple-800 hover:border-purple-400 py-5 rounded-2xl"
+            className={`flex items-center text-xl text-white transition duration-300 cursor-pointer border-2 border-transparent hover:bg-purple-800 hover:border-purple-400 py-5 rounded-2xl ${
+              location.pathname === "/chat"
+                ? "bg-purple-800 border-purple-400"
+                : ""
+            }`}
           >
             <li className="ml-5 ">
               <FontAwesomeIcon icon={faRobot} size="lg" className="mr-3 w-8" />
               <span>AI Chat</span>
             </li>
           </Link>
-          <Link className="flex items-center text-xl text-white transition duration-300 cursor-pointer border-2 border-transparent hover:bg-purple-800 hover:border-purple-400 py-5 rounded-2xl">
+          <Link
+            to={"/contact"}
+            className={`flex items-center text-xl text-white transition duration-300 cursor-pointer border-2 border-transparent hover:bg-purple-800 hover:border-purple-400 py-5 rounded-2xl ${
+              location.pathname === "/contact"
+                ? "bg-purple-800 border-purple-400"
+                : ""
+            }`}
+          >
             <li className="ml-5">
               <FontAwesomeIcon
                 icon={faEnvelope}
