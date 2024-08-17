@@ -22,7 +22,7 @@ export const SideBarComponent = ({ isSidebarOpen, toggleSidebar }) => {
       </button>
       <nav
         className={`w-1/6 bg-custom-dark min-h-screen p-4 min-w-44 transition-transform duration-300 ease-in-out ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          isSidebarOpen ? "translate-x-0" : "-translate-x-96"
         } `}
       >
         <Link to={"/"} className="flex">
