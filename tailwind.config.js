@@ -5,6 +5,8 @@ export default {
     extend: {
       colors: {
         "custom-dark": "#24252d",
+        "custom-bg-orange":"#ec4c14",
+        "custom-bg-orange-hover":"#ed3a0d"
       },
     },
   },

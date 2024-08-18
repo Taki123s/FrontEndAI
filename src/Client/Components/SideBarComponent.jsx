@@ -16,9 +16,9 @@ export const SideBarComponent = ({ isSidebarOpen, toggleSidebar }) => {
     <>
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-full focus:outline-none"
+        className="fixed top-4 left-4 z-50 px-2 rounded-lg scale-125 bg-white text-white  focus:outline-none"
       >
-        <FontAwesomeIcon icon={isSidebarOpen ? faTimes : faBars} />
+        <FontAwesomeIcon className="text-black" icon={isSidebarOpen ? faTimes : faBars} />
       </button>
       <nav
         className={`w-1/6 bg-custom-dark min-h-screen p-4 min-w-44 transition-transform duration-300 ease-in-out ${
